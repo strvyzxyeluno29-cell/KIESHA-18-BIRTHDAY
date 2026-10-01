@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Happy 18th Birthday</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="page center">
+  <div class="big18">18</div>
+  <h1 style="font-size:2.6rem">Happy Birthday!</h1>
+  <p style="color:var(--mut)">A little surprise made just for you ✨</p>
+  <div class="box">
+    <label for="nm">Name:</label><input id="nm" placeholder="Enter your name">
+    <label for="bd">Birthday:</label><input id="bd" type="date">
+    <button class="btn w" onclick="proceed()">Proceed 💙</button>
+  </div>
+</section>
+<script src="common.js"></script>
+<script>
+function proceed(){
+  const n=$('nm').value.trim(),b=$('bd').value;
+  if(!n||!b){alert('Please fill in your name and birthday 💙');return}
+  try{localStorage.setItem('b18name',n)}catch(e){}
+  confetti();
+  setTimeout(()=>location.href='home.html',1200);
+}
+</script>
+</body>
+</html>

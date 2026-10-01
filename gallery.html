@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gallery | Happy 18th</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="back" href="home.html">← Home</a>
+<section class="page">
+  <h2>Gallery 📸</h2>
+  <div class="grid g-pic" id="pg"></div>
+</section>
+<script src="common.js"></script>
+<script>
+/* ===== EDIT HERE: 50 photo slots =====
+   Put an image link (or a file path like "photos/1.jpg") in a slot.
+   Example: PHOTOS[0]="https://example.com/photo.jpg"; */
+const PHOTOS=Array(50).fill("");
+PHOTOS[0]="";
+PHOTOS[1]="";
+PHOTOS[2]="";
+/* ===================================== */
+
+PHOTOS.forEach((u,i)=>{
+ const d=document.createElement('div');d.className='slot';
+ d.innerHTML=u?`<img loading="lazy" src="${u}" alt="Photo ${i+1}">`:`📷 ${i+1}`;
+ if(u)d.onclick=()=>openM(`<img src="${u}" alt="Photo ${i+1}">`);
+ $('pg').appendChild(d);
+});
+</script>
+</body>
+</html>

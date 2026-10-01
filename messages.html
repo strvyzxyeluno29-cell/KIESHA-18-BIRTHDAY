@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messages | Happy 18th</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="back" href="home.html">← Home</a>
+<section class="page wide">
+  <h2>Messages 💌</h2>
+  <div class="mbtns" id="mb"></div>
+  <div class="paper" id="paper"></div>
+</section>
+<script src="common.js"></script>
+<script>
+/* ===== EDIT HERE: names and letters ===== */
+const MESSAGES=[
+ {from:"Mielle",text:"Dear you,\n\nHappy 18th birthday! Write Mielle's message here. It can be as long as you want and the box will scroll.\n\nWith love,\nMielle"},
+ {from:"Erica",text:"Dear you,\n\nHappy 18th birthday! Write Erica's message here.\n\nWith love,\nErica"},
+ {from:"Ayessa",text:"Dear you,\n\nHappy 18th birthday! Write Ayessa's message here.\n\nWith love,\nAyessa"},
+ {from:"Brylle",text:"Dear you,\n\nHappy 18th birthday! Write Brylle's message here.\n\nWith love,\nBrylle"}
+];
+const TYPE_SPEED=55; // milliseconds per letter (bigger = slower)
+/* ======================================== */
+
+let tt;
+MESSAGES.forEach(m=>{const b=document.createElement('button');b.className='btn';
+ b.textContent=m.from+"'s message 💌";b.onclick=()=>typeMsg(m.text);$('mb').appendChild(b)});
+function typeMsg(t){clearInterval(tt);const p=$('paper');p.style.display='block';p.className='paper';p.textContent='';let i=0;
+ tt=setInterval(()=>{p.textContent+=t[i++];p.scrollTop=p.scrollHeight;
+  if(i>=t.length){clearInterval(tt);p.classList.add('done')}},TYPE_SPEED)}
+</script>
+</body>
+</html>

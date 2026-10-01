@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Videos | Happy 18th</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="back" href="home.html">← Home</a>
+<section class="page">
+  <h2>Videos 🎬</h2>
+  <div class="grid g-vid" id="vg"></div>
+</section>
+<script src="common.js"></script>
+<script>
+/* ===== EDIT HERE: 15 video slots =====
+   Paste a YouTube link or an .mp4 link between the quotes.
+   Leave "" to keep the slot empty. */
+const VIDEOS=[
+ "","","","","",
+ "","","","","",
+ "","","","",""
+];
+/* ===================================== */
+
+function embed(u){
+ const m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+ return m?`<iframe src="https://www.youtube.com/embed/${m[1]}?autoplay=1" allow="autoplay;fullscreen" allowfullscreen></iframe>`
+         :`<video src="${u}" controls autoplay></video>`;
+}
+VIDEOS.forEach((u,i)=>{
+ const d=document.createElement('div');d.className='slot vslot';
+ d.innerHTML=u?`<div class="play">▶</div>🎬 Video ${i+1}`:`🎬 ${i+1}`;
+ if(u)d.onclick=()=>openM(embed(u));
+ $('vg').appendChild(d);
+});
+</script>
+</body>
+</html>

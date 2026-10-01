@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes | Happy 18th</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="back" href="home.html">← Home</a>
+<section class="page">
+  <h2>Notes 📝</h2>
+  <div class="grid g-note" id="ng"></div>
+</section>
+<script src="common.js"></script>
+<script>
+/* ===== EDIT HERE: up to 10 notes (t = title, x = text) ===== */
+const NOTES=[
+ {t:"Note 1",x:"Write your note here."},{t:"Note 2",x:"Write your note here."},
+ {t:"Note 3",x:"Write your note here."},{t:"Note 4",x:"Write your note here."},
+ {t:"Note 5",x:"Write your note here."},{t:"Note 6",x:"Write your note here."},
+ {t:"Note 7",x:"Write your note here."},{t:"Note 8",x:"Write your note here."},
+ {t:"Note 9",x:"Write your note here."},{t:"Note 10",x:"Write your note here."}
+];
+/* =========================================================== */
+
+NOTES.forEach(n=>{
+ const d=document.createElement('div');d.className='note';
+ d.style.setProperty('--r',(Math.random()*4-2)+'deg');
+ d.innerHTML=`<b>${n.t}</b>${n.x}`;
+ $('ng').appendChild(d);
+});
+</script>
+</body>
+</html>
